@@ -23,11 +23,11 @@ Connecting to Wi-Fi...
 
 Connected to Wi-Fi
 
-Current time: Thu Jan  1 00:00:04 1970
+Current time: Tue Apr 11 18:37:44 2023
 
-What is the capital of France?
+What is an apple?
 
 Sent...
 
-The capital of France is Paris.
+An apple is a fruit that is round or oval in shape, with a red or green skin and a white, juicy, and crunchy flesh. It is a good source of fiber, vitamins, and antioxidants, and is often eaten as a healthy snack or used in cooking and baking.
 
