@@ -60,11 +60,10 @@ String ChatGPT::createCompletion(const JsonArray& messages,
 
     String response = "";
     bool header_passed = false;
-
-    //unsigned long timeout = 5000; // 5 seconds timeout
+    bool finish_reason_found = false;
     unsigned long start = millis();
 
-    while (_client.connected() && (millis() - start < timeout)) {
+    while (_client.connected() && !finish_reason_found && (millis() - start < timeout)) {
         if (_client.available()) {
             String line = _client.readStringUntil('\n');
 
@@ -73,13 +72,25 @@ String ChatGPT::createCompletion(const JsonArray& messages,
             }
             else if (header_passed) {
                 response += line;
-                if (response.indexOf("\"finish_reason\"") != -1) { // Check for the finish_reason field in the response
-                    break;
+
+                // Deserialize the JSON response and check for the finish_reason field
+                StaticJsonDocument<2048> jsonResponse;
+                DeserializationError error = deserializeJson(jsonResponse, response);
+                if (!error) {
+                    String finish_reason = jsonResponse["choices"][0]["finish_reason"].as<String>();
+                    if (!finish_reason.isEmpty()) {
+                        finish_reason_found = true;
+                        if (finish_reason != "stop") {
+                            Serial.println("Error: finish_reason is not 'stop'.");
+                        }
+                    }
                 }
             }
         }
     }
-
+    if (millis() - start > timeout) {
+        Serial.println("Error: Timeout.");
+    }
     StaticJsonDocument<2048> jsonResponse;
     deserializeJson(jsonResponse, response);
     String chatResponse = jsonResponse["choices"][0]["message"]["content"].as<String>();
