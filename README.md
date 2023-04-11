@@ -14,3 +14,15 @@ You'll need a root cert from https://api.openai.com inserting into the main.cpp
   Once you have the root CA certificate, open the exported .cer file with a text editor and copy the content between -----BEGIN CERTIFICATE----- and -----END      CERTIFICATE-----.
 
 This was built using PatformIO using ESP32 DEVKIT and only needs the ArduinoJson libary adding to build
+
+Output:
+
+entry 0x400805e4
+Connecting to Wi-Fi...
+Connected to Wi-Fi
+Current time: Thu Jan  1 00:00:04 1970
+
+What is the capital of France?
+Sent...
+The capital of France is Paris.
+
