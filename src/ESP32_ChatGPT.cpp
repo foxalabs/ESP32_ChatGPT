@@ -94,6 +94,6 @@ String ChatGPT::createCompletion(const JsonArray& messages,
     StaticJsonDocument<2048> jsonResponse;
     deserializeJson(jsonResponse, response);
     String chatResponse = jsonResponse["choices"][0]["message"]["content"].as<String>();
-
+    _client.stop();
     return chatResponse;
 }
