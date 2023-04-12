@@ -1,7 +1,7 @@
 # ESP32_ChatGPT
 
 Library for the ESP32 and hopefully the new R4 Uno WiFi when it's out
-(Note: json buffers set to 2048 bytes, so long replys may get truncaed)
+(Note: json buffers set to 2048 bytes, so long replys may get truncated)
 
 You'll need a root cert from https://api.openai.com inserting into the main.cpp 
   To obtain the root CA certificate, you can follow these steps:
