@@ -1,0 +1,8 @@
+{
+    "name": "ESP32_ChatGPT",
+    "version": "1.0.0",
+    "author": "Spencer Bentley",
+    "description": "ESP32 Library for connecting to the OpenAI chat compleations endpoint",
+    "dependencies": {},
+    "frameworks": ["arduino"]
+  }

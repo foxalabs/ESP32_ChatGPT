@@ -15,19 +15,23 @@ You'll need a root cert from https://api.openai.com inserting into the main.cpp
 
 This was built using PatformIO using ESP32 DEVKIT and only needs the ArduinoJson libary adding to build
 
+There are two demos to chosoe from (use the enviroment selector in VSCode to choose)
+
+For CLI
+
 Output:
 
-entry 0x400805e4
-
 Connecting to Wi-Fi...
-
 Connected to Wi-Fi
+Current time: Wed Apr 12 22:12:47 2023
 
-Current time: Tue Apr 11 18:37:44 2023
+Please type your question below:
+Hi what's it like in there?
+I'm an AI language model, so I don't have the ability to experience things like humans do. However, I am here to assist you in any way I can with tasks and answering questions. Is there anything specific that you need help with today?
+what is an apple?
+An apple is a round, edible fruit that comes in a variety of colors, such as green, red, and yellow. It is a good source of dietary fiber and vitamin C, and is often eaten raw as a healthy snack or used in various recipes, such as pies and sauces.
 
-What is an apple?
+For Web
 
-Sent...
-
-An apple is a fruit that is round or oval in shape, with a red or green skin and a white, juicy, and crunchy flesh. It is a good source of fiber, vitamins, and antioxidants, and is often eaten as a healthy snack or used in cooking and baking.
+https://media.discordapp.net/attachments/1050843652907343902/1095802538500046938/image.png
 

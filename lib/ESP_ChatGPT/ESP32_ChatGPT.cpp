@@ -1,5 +1,5 @@
 #include "ESP32_ChatGPT.h"
-
+#include <WiFiClientSecure.h>
 ChatGPT::ChatGPT(const char* apiKey, const char* rootCA): _apiKey(apiKey) {
     _client.setCACert(rootCA);
 }
@@ -21,7 +21,6 @@ String ChatGPT::createCompletion(const JsonArray& messages,
         Serial.println("Connection failed");
         return "";
     }
-
     DynamicJsonDocument jsonDoc(2048);
     JsonObject root = jsonDoc.to<JsonObject>();
     root["model"] = model;
@@ -46,10 +45,9 @@ String ChatGPT::createCompletion(const JsonArray& messages,
     }
 
     String payload;
+    String authorizationHeader = "";
     serializeJson(root, payload);
-
-    String authorizationHeader = "Authorization: Bearer " + String(_apiKey);
-    //Serial.println(authorizationHeader);
+    authorizationHeader = "Authorization: Bearer " + String(_apiKey);
     _client.println("POST " + String(_apiPath) + " HTTP/1.1");
     _client.println("Host: " + String(_apiDomain));
     _client.println("Content-Type: application/json");
@@ -62,7 +60,7 @@ String ChatGPT::createCompletion(const JsonArray& messages,
     bool header_passed = false;
     bool finish_reason_found = false;
     unsigned long start = millis();
-
+    response = _client.readStringUntil('\n');
     while (_client.connected() && !finish_reason_found && (millis() - start < timeout)) {
         if (_client.available()) {
             String line = _client.readStringUntil('\n');
@@ -88,12 +86,13 @@ String ChatGPT::createCompletion(const JsonArray& messages,
             }
         }
     }
+
     if (millis() - start > timeout) {
         Serial.println("Error: Timeout.");
     }
     StaticJsonDocument<2048> jsonResponse;
     deserializeJson(jsonResponse, response);
     String chatResponse = jsonResponse["choices"][0]["message"]["content"].as<String>();
-
+    _client.stop();
     return chatResponse;
 }
