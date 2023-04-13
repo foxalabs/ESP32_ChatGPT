@@ -17,7 +17,7 @@ You'll need a root cert from https://api.openai.com inserting into the main.cpp
 
   Once you have the root CA certificate, open the exported .cer file with a text editor and copy the content between -----BEGIN CERTIFICATE----- and -----END      CERTIFICATE-----.
   
-  Please note that this simple example code used SLL communication to ensure privacy, it does not perform any API_KEY obfuscation on the source code itself. While this may be acceptable for personal projects on your own hardware, more robust authentication methods should be employed for commercial ventures. 
+  Please note that this simple example code uses SLL communication to ensure privacy, it does not perform any API_KEY obfuscation on the source code itself. While this may be acceptable for personal projects on your own hardware, more robust authentication methods should be employed for commercial ventures. 
 
 This was built using PatformIO using ESP32 DEVKIT and only needs the ArduinoJson libary adding to build
 
