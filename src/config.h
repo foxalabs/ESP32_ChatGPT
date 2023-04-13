@@ -2,7 +2,7 @@
 
 const char* ROOT_CA = R"EOF(
 -----BEGIN CERTIFICATE-----
-my very secret key no see!
+YOUR CERTIFICATE GOES HERE
 -----END CERTIFICATE-----
 )EOF";
 
