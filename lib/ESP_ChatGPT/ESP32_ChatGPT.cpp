@@ -65,10 +65,9 @@ String ChatGPT::createCompletion(const JsonArray& messages,
 
     String response = "";
     bool header_passed = false;
-    bool finish_reason_found = false;
     unsigned long start = millis();
-    response = _client.readStringUntil('\n');
-    while (_client.connected() && !finish_reason_found && (millis() - start < timeout)) {
+
+    while (_client.connected() && (millis() - start < timeout)) {
         if (_client.available()) {
             String line = _client.readStringUntil('\n');
 
@@ -82,9 +81,15 @@ String ChatGPT::createCompletion(const JsonArray& messages,
                 if (!error) {
                     String finish_reason = jsonResponse["choices"][0]["finish_reason"].as<String>();
                     if (!finish_reason.isEmpty()) {
-                        finish_reason_found = true;
-                        if (finish_reason != "stop") {
-                            Serial.println("Error: finish_reason is not 'stop'.");
+                        if (finish_reason == "stop") {
+                            // Handle 'stop' finish_reason
+                            break;
+                        }
+                        else {
+                            // Handle any other finish_reasons
+                            Serial.print("Finish reason: ");
+                            Serial.println(finish_reason);
+                            break;
                         }
                     }
                 }
