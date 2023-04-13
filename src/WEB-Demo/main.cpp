@@ -30,20 +30,56 @@ String getWebPage() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
     <style>
-      body { font-family: Arial, sans-serif; }
-      #chatbox { width: 100%; height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 5px; }
-      #question { width: 100%; }
-      button { width: 100%; }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #1f1f1f;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        background-color: #3f3f3f;
+        padding: 20px;
+        margin: 0;
+        text-align: center;
+      }
+      #chatbox {
+        width: 100%;
+        height: 300px;
+        overflow-y: scroll;
+        border: 1px solid #3f3f3f;
+        padding: 5px;
+        margin-top: 20px;
+        background-color: #1f1f1f;
+      }
+      #question {
+        width: calc(100% - 10px);
+        margin-top: 20px;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+        background-color: #3f3f3f;
+        color: #ffffff;
+        border: 1px solid #3f3f3f;
+        margin-top: 10px;
+        padding: 5px 0;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #4f4f4f;
+      }
     </style>
   </head>
   <body>
     <h1>ESP32 Chatbot</h1>
     <div id="chatbox"></div>
-    <input type="text" id="question" placeholder="Type your question...">
+    <input type="text" id="question" placeholder="Type your question..." onkeydown="if (event.keyCode == 13) { sendQuestion(); }">
     <button onclick="sendQuestion()">Ask</button>
     <script>
       function sendQuestion() {
         var question = document.getElementById('question').value;
+        if (!question) return;
         document.getElementById('chatbox').innerHTML += 'User: ' + question + '<br>';
         fetch('/question?text=' + encodeURIComponent(question))
           .then(response => response.text())
@@ -58,6 +94,7 @@ String getWebPage() {
   )=====";
   return html;
 }
+
 
 void handleRoot() {
   server.send(200, "text/html", getWebPage());
