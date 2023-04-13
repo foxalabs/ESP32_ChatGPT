@@ -2,7 +2,7 @@
  *                                                                        *
  *  Author: Spencer Bentley                                               *
  *  Date: 2023-04-11                                                      *
- *  Description: [ESP32_ChatGPT.h Library]                                *
+ *  Description: [ESP32_ChatGPT.cpp Library]                              *
  *                                                                        *
  **************************************************************************/
 #include "ESP32_ChatGPT.h"
