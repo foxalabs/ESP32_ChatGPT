@@ -47,5 +47,5 @@ An apple is a round, edible fruit that comes in a variety of colors, such as gre
 
 ## For Web
 
-![image](https://user-images.githubusercontent.com/22841036/231598671-a30f7cd6-edff-488f-b2d2-29b5fc3f8e1c.png) 
+![image](https://user-images.githubusercontent.com/22841036/231782402-0bf7954d-5e94-43a8-88c7-8bd2902cf463.png)
 
