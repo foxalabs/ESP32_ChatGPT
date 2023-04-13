@@ -21,7 +21,7 @@ There are two demos to chosoe from (use the enviroment selector in VSCode to cho
 For CLI
 
 Output:
-
+```
 Connecting to Wi-Fi...
 Connected to Wi-Fi
 Current time: Wed Apr 12 22:12:47 2023
@@ -35,7 +35,7 @@ I'm an AI language model, so I don't have the ability to experience things like 
 what is an apple?
 
 An apple is a round, edible fruit that comes in a variety of colors, such as green, red, and yellow. It is a good source of dietary fiber and vitamin C, and is often eaten raw as a healthy snack or used in various recipes, such as pies and sauces.
-
+```
 
 For Web
 
