@@ -12,6 +12,9 @@ You'll need a root cert from https://api.openai.com inserting into the main.cpp
   4. Navigate to the "Certification Path" tab.
   5. Click on the top certificate in the hierarchy (typically "DigiCert Global Root CA" or similar) and click "View Certificate."
   6. Go to the "Details" tab and click "Copy to File..." to export the certificate in the Base-64 encoded X.509 (CER) format.
+
+![image](https://user-images.githubusercontent.com/22841036/231741137-70f8ad28-062a-4a94-b875-20b9112ac2d1.png)
+
   Once you have the root CA certificate, open the exported .cer file with a text editor and copy the content between -----BEGIN CERTIFICATE----- and -----END      CERTIFICATE-----.
   
   Please note that this simple example code does not perform any API_KEY obfuscation. While this may be acceptable for personal projects on your own hardware, more robust authentication methods should be employed for commercial ventures. 
