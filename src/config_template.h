@@ -1,3 +1,5 @@
+//Rename this file to config.h and it will be ignored by github via the .gitignore file 
+
 #pragma once
 
 const char* ROOT_CA = R"EOF(
