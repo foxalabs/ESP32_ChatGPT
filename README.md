@@ -13,6 +13,8 @@ You'll need a root cert from https://api.openai.com inserting into the main.cpp
   5. Click on the top certificate in the hierarchy (typically "DigiCert Global Root CA" or similar) and click "View Certificate."
   6. Go to the "Details" tab and click "Copy to File..." to export the certificate in the Base-64 encoded X.509 (CER) format.
   Once you have the root CA certificate, open the exported .cer file with a text editor and copy the content between -----BEGIN CERTIFICATE----- and -----END      CERTIFICATE-----.
+  
+  Please note that this simple example code does not perform any API_KEY obfuscation. While this may be acceptable for personal projects on your own hardware, more robust authentication methods should be employed for commercial ventures. 
 
 This was built using PatformIO using ESP32 DEVKIT and only needs the ArduinoJson libary adding to build
 
@@ -33,5 +35,5 @@ An apple is a round, edible fruit that comes in a variety of colors, such as gre
 
 ## For Web
 
-![image](https://user-images.githubusercontent.com/22841036/231598671-a30f7cd6-edff-488f-b2d2-29b5fc3f8e1c.png)
+![image](https://user-images.githubusercontent.com/22841036/231598671-a30f7cd6-edff-488f-b2d2-29b5fc3f8e1c.png) 
 
