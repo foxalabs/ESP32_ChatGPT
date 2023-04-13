@@ -24,7 +24,7 @@ You'll need a root cert from https://api.openai.com inserting into the config.h
 
 ![image](https://user-images.githubusercontent.com/22841036/231741137-70f8ad28-062a-4a94-b875-20b9112ac2d1.png)
 
-  Once you have the root CA certificate, open the exported .cer file with a text editor and copy the content between -----BEGIN CERTIFICATE----- and -----END      CERTIFICATE-----.
+  Once you have the root CA certificate, open the exported file with a text editor and copy the content between -----BEGIN CERTIFICATE----- and -----END      CERTIFICATE-----.
   
   Please note that this simple example code uses SSL communication to ensure privacy, it does not perform any API_KEY obfuscation on the source code itself. While this may be acceptable for personal projects on your own hardware, more robust authentication methods should be employed for commercial ventures. 
 
