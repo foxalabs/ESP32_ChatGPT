@@ -1,3 +1,10 @@
+/**************************************************************************
+ *                                                                        *
+ *  Author: Spencer Bentley                                               *
+ *  Date: 2023-04-11                                                      *
+ *  Description: [ESP32_ChatGPT.h Library]                                *
+ *                                                                        *
+ **************************************************************************/
 #include "ESP32_ChatGPT.h"
 #include <WiFiClientSecure.h>
 ChatGPT::ChatGPT(const char* apiKey, const char* rootCA): _apiKey(apiKey) {
@@ -70,8 +77,6 @@ String ChatGPT::createCompletion(const JsonArray& messages,
             }
             else if (header_passed) {
                 response += line;
-
-                // Deserialize the JSON response and check for the finish_reason field
                 StaticJsonDocument<2048> jsonResponse;
                 DeserializationError error = deserializeJson(jsonResponse, response);
                 if (!error) {
