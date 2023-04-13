@@ -5,6 +5,7 @@
  *  Description: [ESP32_ChatGPT.cpp Library]                              *
  *                                                                        *
  **************************************************************************/
+#define JsonMaxSize 4096
 #include "ESP32_ChatGPT.h"
 #include <WiFiClientSecure.h>
 ChatGPT::ChatGPT(const char* apiKey, const char* rootCA): _apiKey(apiKey) {
@@ -28,7 +29,7 @@ String ChatGPT::createCompletion(const JsonArray& messages,
         Serial.println("Connection failed");
         return "";
     }
-    DynamicJsonDocument jsonDoc(2048);
+    DynamicJsonDocument jsonDoc(JsonMaxSize);
     JsonObject root = jsonDoc.to<JsonObject>();
     root["model"] = model;
     root["messages"] = messages;
@@ -76,7 +77,7 @@ String ChatGPT::createCompletion(const JsonArray& messages,
             }
             else if (header_passed) {
                 response += line;
-                StaticJsonDocument<2048> jsonResponse;
+                StaticJsonDocument<JsonMaxSize> jsonResponse;
                 DeserializationError error = deserializeJson(jsonResponse, response);
                 if (!error) {
                     String finish_reason = jsonResponse["choices"][0]["finish_reason"].as<String>();
@@ -99,7 +100,7 @@ String ChatGPT::createCompletion(const JsonArray& messages,
     if (millis() - start > timeout) {
         Serial.println("Error: Timeout.");
     }
-    StaticJsonDocument<2048> jsonResponse;
+    StaticJsonDocument<JsonMaxSize> jsonResponse;
     deserializeJson(jsonResponse, response);
     String chatResponse = jsonResponse["choices"][0]["message"]["content"].as<String>();
     _client.stop();

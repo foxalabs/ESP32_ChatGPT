@@ -50,7 +50,7 @@ String readString() {
 
 void myTask(void* parameters) {
   String Question = "What is an apple?";
-  StaticJsonDocument<1024> jsonDoc;
+  StaticJsonDocument<4096> jsonDoc;
   JsonArray messages = jsonDoc.createNestedArray("messages");
 
   JsonObject message1 = messages.createNestedObject();

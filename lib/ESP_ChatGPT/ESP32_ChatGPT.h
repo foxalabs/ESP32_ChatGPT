@@ -19,7 +19,7 @@ public:
   String createCompletion(
     const JsonArray& messages, 
     const String& model, 
-    unsigned long timeout = 5000,
+    unsigned long timeout = 15000,
     int maxTokens = -1, 
     float temperature = 1, 
     float top_p = 1, 

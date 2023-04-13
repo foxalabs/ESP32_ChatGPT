@@ -119,7 +119,7 @@ void setSystemTime() {
 void chatGPTTask(void* parameters) {
   while (1) {
     if (userQuestion != "") {
-      StaticJsonDocument<1024> jsonDoc;
+      StaticJsonDocument<4096> jsonDoc;
       JsonArray messages = jsonDoc.createNestedArray("messages");
 
       JsonObject message1 = messages.createNestedObject();
