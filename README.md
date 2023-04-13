@@ -10,15 +10,14 @@ You'll need a root cert from https://api.openai.com inserting into the main.cpp
   2. Click on the padlock icon in the address bar.
    
   ![image](https://user-images.githubusercontent.com/22841036/231742547-eb272077-f799-4145-b82c-96ab769fa670.png)
-  3. Click on "Certificate (Valid)" or similar text, depending on your browser.
   
   ![image](https://user-images.githubusercontent.com/22841036/231742851-48bc0238-f624-4fdf-afed-93555d865cf7.png)
   
   ![image](https://user-images.githubusercontent.com/22841036/231743096-2f1ddedf-0a1e-4358-804a-715e8d50ddb9.png)
   
-  4. Go to the "Details" tab.
-  5. Click on the top certificate in the hierarchy (typically "Baltimore Root CA" or similar)
-  6. Export or Save to File.
+  3. Go to the "Details" tab.
+  4. Click on the top certificate in the hierarchy (typically "Baltimore Root CA" or similar)
+  5. Export or Save to File.
 
 
 ![image](https://user-images.githubusercontent.com/22841036/231741137-70f8ad28-062a-4a94-b875-20b9112ac2d1.png)
