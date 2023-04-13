@@ -1,3 +1,10 @@
+/**************************************************************************
+ *                                                                        *
+ *  Author: Spencer Bentley                                               *
+ *  Date: 2023-04-11                                                      *
+ *  Description: [CLI-Demo for ESP32_ChatGPT.h Library]                   *
+ *                                                                        *
+ **************************************************************************/
 #include <Arduino.h>
 #include <WiFi.h>
 #include <ArduinoJson.h>
@@ -20,10 +27,7 @@ ChatGPT chatGPT(OPENAI_API_KEY, ROOT_CA);
 
 
 void setSystemTime() {
-  // Configure NTP server and time zone
   configTime(0, 0, "pool.ntp.org", "time.nist.gov");
-
-  // Wait for time to be set
   time_t now = time(nullptr);
   int retries = 0;
   while (now < 8 * 3600 * 2 && retries < 30) {
@@ -31,8 +35,6 @@ void setSystemTime() {
     now = time(nullptr);
     retries++;
   }
-
-  // Print the current time
   struct tm timeinfo;
   gmtime_r(&now, &timeinfo);
   Serial.print("Current time: ");
@@ -40,16 +42,16 @@ void setSystemTime() {
 }
 
 String readString() {
-  String inputString = "";  // a String to hold the input
+  String inputString = ""; 
   while (true) {
     while (Serial.available()) {
-      char c = Serial.read();  // read the next character
-      if (c == '\n') {  // if newline character is received, return the input
+      char c = Serial.read(); 
+      if (c == '\n') {  
         return inputString;
       }
       else {
-        inputString += c;  // append the character to the input
-        Serial.print(c);  // echo the character back to the Serial Monitor window
+        inputString += c;  
+        Serial.print(c); 
       }
     }
   }
@@ -57,8 +59,6 @@ String readString() {
 
 void myTask(void* parameters) {
   String Question = "What is an apple?";
-  // Your main code goes here, including the ChatGPT instance creation and
-  // method calls
   StaticJsonDocument<1024> jsonDoc;
   JsonArray messages = jsonDoc.createNestedArray("messages");
 
