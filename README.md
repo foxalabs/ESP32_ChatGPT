@@ -1,7 +1,7 @@
 # ESP32_ChatGPT
 
 Library for the ESP32 and hopefully the new R4 Uno WiFi when it's out
-(Note: json buffers set to 2048 bytes, so long replys may get truncated)
+(Note: json buffers set to 4096 bytes, so long replys may get truncated)
 
 Please copy config_template.h to config.h and fill in your personal keys and certificates, this file in on the .gitignore list so it will be kept private from repo pushess.
 
