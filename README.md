@@ -13,6 +13,7 @@ You'll need a root cert from https://api.openai.com inserting into the main.cpp
   3. Click on "Certificate (Valid)" or similar text, depending on your browser.
   
   ![image](https://user-images.githubusercontent.com/22841036/231742851-48bc0238-f624-4fdf-afed-93555d865cf7.png)
+  
   ![image](https://user-images.githubusercontent.com/22841036/231743096-2f1ddedf-0a1e-4358-804a-715e8d50ddb9.png)
   
   4. Go to the "Details" tab.
