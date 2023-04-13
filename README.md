@@ -15,8 +15,9 @@ You'll need a root cert from https://api.openai.com inserting into the main.cpp
   ![image](https://user-images.githubusercontent.com/22841036/231742851-48bc0238-f624-4fdf-afed-93555d865cf7.png)
   ![image](https://user-images.githubusercontent.com/22841036/231743096-2f1ddedf-0a1e-4358-804a-715e8d50ddb9.png)
   
-  4. Go to the "Details" tab and click "Copy to File..." to export the certificate in the Base-64 encoded X.509 (CER) format.
+  4. Go to the "Details" tab.
   5. Click on the top certificate in the hierarchy (typically "Baltimore Root CA" or similar)
+  6. Export or Save to File.
 
 
 ![image](https://user-images.githubusercontent.com/22841036/231741137-70f8ad28-062a-4a94-b875-20b9112ac2d1.png)
