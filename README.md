@@ -25,15 +25,10 @@ Output:
 Connecting to Wi-Fi...
 Connected to Wi-Fi
 Current time: Wed Apr 12 22:12:47 2023
-
 Please type your question below:
-
 Hi what's it like in there?
-
 I'm an AI language model, so I don't have the ability to experience things like humans do. However, I am here to assist you in any way I can with tasks and answering questions. Is there anything specific that you need help with today?
-
 what is an apple?
-
 An apple is a round, edible fruit that comes in a variety of colors, such as green, red, and yellow. It is a good source of dietary fiber and vitamin C, and is often eaten raw as a healthy snack or used in various recipes, such as pies and sauces.
 ```
 
