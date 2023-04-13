@@ -1,3 +1,10 @@
+/**************************************************************************
+ *                                                                        *
+ *  Author: Spencer Bentley                                               *
+ *  Date: 2023-04-11                                                      *
+ *  Description: [Web-Demo for ESP32_ChatGPT.h Library]                   *
+ *                                                                        *
+ **************************************************************************/
 #include <Arduino.h>
 #include <WiFi.h>
 #include <ArduinoJson.h>
@@ -66,9 +73,7 @@ void handleRoot() {
 }
 
 void setSystemTime() {
-    // Configure NTP server and time zone
     configTime(0, 0, "pool.ntp.org", "time.nist.gov");
-    // Wait for time to be set
     time_t now = time(nullptr);
     int retries = 0;
     while (now < 8 * 3600 * 2 && retries < 30) {
@@ -76,7 +81,6 @@ void setSystemTime() {
         now = time(nullptr);
         retries++;
     }
-    // Print the current time
     struct tm timeinfo;
     gmtime_r(&now, &timeinfo);
     Serial.print("Current time: ");
@@ -100,14 +104,9 @@ void chatGPTTask(void* parameters) {
       
       String response = chatGPT.createCompletion(messages, MODEL);
       
-      // Send the response back to the server
       server.send(200, "text/plain", response);
-
-      // Clear the userQuestion
       userQuestion = "";
     }
-
-    // Allow other tasks to run
     vTaskDelay(pdMS_TO_TICKS(10));
   }
 }
@@ -117,8 +116,6 @@ void chatGPTTask(void* parameters) {
 void handleQuestion() {
   if (server.hasArg("text")) {
     userQuestion = server.arg("text");
-
-    // Yield until the response is ready
     while (userQuestion != "") {
       delay(10);
     }
