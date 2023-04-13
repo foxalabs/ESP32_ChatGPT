@@ -11,16 +11,7 @@
 #include <time.h>
 #include <WebServer.h>
 #include <ESP32_ChatGPT.h>
-
-const char* ROOT_CA = R"EOF(
------BEGIN CERTIFICATE-----
-
------END CERTIFICATE-----
-)EOF";
-
-static const char* WIFI_SSID = "";
-static const char* WIFI_PASSWORD = "";
-static const char* OPENAI_API_KEY = "";
+#include "..\config.h"
 
 const char* MODEL = "gpt-3.5-turbo";
 
