@@ -151,7 +151,7 @@ void chatGPTTask(void* parameters) {
 
       JsonObject message1 = messages.createNestedObject();
       message1["role"] = "system";
-      message1["content"] = "You are a helpful assistant.";
+      message1["content"] = "You are a helpful assistant. At the end of the chat you should put a suitable emoji, and also include emojis whereever they seem appropriate in the text.";
 
       JsonObject message2 = messages.createNestedObject();
       message2["role"] = "user";
@@ -195,7 +195,7 @@ void setup() {
   server.begin();
   Serial.println("Server Started.");
   Serial.println("Connected to Wi-Fi, IP address: " + WiFi.localIP().toString());
-  xTaskCreatePinnedToCore(chatGPTTask, "ChatGPT Task", 8192 * 2, NULL, 1, NULL, 1);
+  xTaskCreatePinnedToCore(chatGPTTask, "ChatGPT Task", 8192 * 3, NULL, 1, NULL, 1);
 }
 
 void loop() {
