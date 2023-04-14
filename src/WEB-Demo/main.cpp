@@ -54,10 +54,26 @@ String getWebPage() {
         width: 100%;
         height: 300px;
         overflow-y: scroll;
-        border: 1px solid #3f3f3f;
         padding: 5px;
         margin-top: 20px;
         background-color: #1f1f1f;
+      }
+      .message {
+        display: inline-block;
+        max-width: 60%;
+        padding: 8px;
+        border-radius: 15px;
+        margin-bottom: 8px;
+      }
+      .user {
+        background-color: #0b93f6;
+        color: #ffffff;
+        margin-right: 5%;
+      }
+      .assistant {
+        background-color: #3f3f3f;
+        color: #ffffff;
+        margin-left: 5%;
       }
       #question {
         width: calc(100% - 10px);
@@ -87,11 +103,13 @@ String getWebPage() {
       function sendQuestion() {
         var question = document.getElementById('question').value;
         if (!question) return;
-        document.getElementById('chatbox').innerHTML += 'User: ' + question + '<br>';
+        var userMessage = '<div style="text-align: right;"><div class="message user">' + question + '</div></div>';
+        document.getElementById('chatbox').insertAdjacentHTML('beforeend', userMessage);
         fetch('/question?text=' + encodeURIComponent(question))
           .then(response => response.text())
           .then(text => {
-            document.getElementById('chatbox').innerHTML += 'Assistant: ' + text + '<br>';
+            var assistantMessage = '<div style="text-align: left;"><div class="message assistant">' + text + '</div></div>';
+            document.getElementById('chatbox').insertAdjacentHTML('beforeend', assistantMessage);
             document.getElementById('question').value = '';
           });
       }
@@ -101,6 +119,8 @@ String getWebPage() {
   )=====";
   return html;
 }
+
+
 
 
 void handleRoot() {
