@@ -49,4 +49,4 @@ An apple is a round, edible fruit that comes in a variety of colors, such as gre
 
 ![image](https://user-images.githubusercontent.com/22841036/232152836-8cb0c4aa-cc48-422d-84b9-4f9c7278f07b.png)
 
-
+Thinking about adding Fucntion calling to the library, let me know if that is something users of the library would like.
