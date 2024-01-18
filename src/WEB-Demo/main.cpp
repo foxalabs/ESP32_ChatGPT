@@ -166,8 +166,6 @@ void chatGPTTask(void* parameters) {
   }
 }
 
-// The function you want to run as a task
-
 void handleQuestion() {
   if (server.hasArg("text")) {
     userQuestion = server.arg("text");
